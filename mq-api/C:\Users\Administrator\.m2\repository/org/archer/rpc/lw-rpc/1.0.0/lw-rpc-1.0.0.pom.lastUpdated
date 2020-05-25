@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue May 19 19:44:22 CST 2020
+@default-spring-milestone-http\://repo.spring.io/milestone/.lastUpdated=1589888662329
+http\://repo.spring.io/milestone/.error=Could not transfer artifact org.archer.rpc\:lw-rpc\:pom\:1.0.0 from/to spring-milestone (http\://repo.spring.io/milestone)\: Authorization failed for http\://repo.spring.io/milestone/org/archer/rpc/lw-rpc/1.0.0/lw-rpc-1.0.0.pom 403 Forbidden
+http\://maven.aliyun.com/nexus/content/groups/public/.error=
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1589888329302
