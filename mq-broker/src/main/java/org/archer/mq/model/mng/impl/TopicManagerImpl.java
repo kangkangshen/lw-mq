@@ -17,8 +17,8 @@ import org.apache.curator.retry.RetryOneTime;
 import org.apache.zookeeper.CreateMode;
 import org.archer.mq.config.ZkConfig;
 import org.archer.mq.constants.RetryPolicyEnum;
-import org.archer.mq.model.mng.TopicManager;
 import org.archer.mq.model.arch.SubscriberMeta;
+import org.archer.mq.model.mng.TopicManager;
 import org.archer.rpc.constants.Delimiters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +46,8 @@ public class TopicManagerImpl implements TopicManager, InitializingBean {
 
     @Resource
     private Environment environment;
-
+    @Autowired
+    private ZkConfig zkConfig;
 
     @SneakyThrows
     @Override
@@ -102,7 +103,6 @@ public class TopicManagerImpl implements TopicManager, InitializingBean {
         curatorClient.create().withMode(CreateMode.EPHEMERAL).forPath(nodePath, jsonData.getBytes());
     }
 
-
     @SneakyThrows
     @Override
     public void batchSubscribe(Multimap<String, SubscriberMeta> metas) {
@@ -124,10 +124,6 @@ public class TopicManagerImpl implements TopicManager, InitializingBean {
         initCuratorClient();
         initTopicCache();
     }
-
-
-    @Autowired
-    private ZkConfig zkConfig;
 
     private void initCuratorClient() {
         this.curatorClient = CuratorFrameworkFactory.builder()

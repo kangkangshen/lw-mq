@@ -13,6 +13,4 @@ public interface MessageDao {
     void insert(Message msg);
 
 
-
-
 }

@@ -10,8 +10,6 @@ import org.archer.mq.MessageSender;
 public class BaseMessageSender implements MessageSender {
 
 
-
-
     @Override
     public void unicast(Message msg, String queue) {
 

@@ -4,5 +4,5 @@ public interface MessageSender {
 
     void unicast(Message msg, String queue);
 
-    void broadcast(Message msg,String topic);
+    void broadcast(Message msg, String topic);
 }

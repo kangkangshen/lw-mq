@@ -7,8 +7,8 @@ import org.archer.mq.broker.TopicMessageBroker;
 import java.util.Objects;
 
 public enum DeliverWayEnum {
-    TOPIC(0, TopicMessageBroker.class,"deliver msg to all topic subscriber,and it is the default deliver way"),
-    QUEUE(1, QueueMessageBroker.class,"deliver msg to a queue.");
+    TOPIC(0, TopicMessageBroker.class, "deliver msg to all topic subscriber,and it is the default deliver way"),
+    QUEUE(1, QueueMessageBroker.class, "deliver msg to a queue.");
 
 
     private final int val;
@@ -23,6 +23,16 @@ public enum DeliverWayEnum {
         this.desc = desc;
     }
 
+    public static DeliverWayEnum of(Integer val) {
+        DeliverWayEnum[] deliverWayEnums = values();
+        for (DeliverWayEnum deliverWayEnum : deliverWayEnums) {
+            if (Objects.equals(deliverWayEnum.val, val)) {
+                return deliverWayEnum;
+            }
+        }
+        return null;
+    }
+
     public int getVal() {
         return val;
     }
@@ -33,15 +43,5 @@ public enum DeliverWayEnum {
 
     public String getDesc() {
         return desc;
-    }
-
-    public static DeliverWayEnum of(Integer val){
-        DeliverWayEnum[] deliverWayEnums = values();
-        for(DeliverWayEnum deliverWayEnum:deliverWayEnums){
-            if(Objects.equals(deliverWayEnum.val,val)){
-                return deliverWayEnum;
-            }
-        }
-        return null;
     }
 }

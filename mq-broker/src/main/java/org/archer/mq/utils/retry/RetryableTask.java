@@ -29,7 +29,7 @@ public class RetryableTask implements Retryable {
     public RetryableTask(@Nonnull Runnable task, @Nonnull RetryPolicy retryPolicy, @Nonnull ExceptionHandler exceptionHandler, @Nonnull ExecutorService executorService) {
         Assert.notNull(task, "task must be not null");
         Assert.notNull(retryPolicy, "retryPolicy must be not null");
-        Assert.notNull(exceptionHandler,"exceptionHandler must be not null");
+        Assert.notNull(exceptionHandler, "exceptionHandler must be not null");
         Assert.notNull(executorService, "executorService must be not null");
         this.task = task;
         this.retryPolicy = retryPolicy;

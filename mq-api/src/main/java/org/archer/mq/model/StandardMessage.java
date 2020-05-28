@@ -12,6 +12,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.Map;
 import java.util.Objects;
+
 @Data
 public class StandardMessage implements Message {
 
@@ -30,7 +31,6 @@ public class StandardMessage implements Message {
     private String desc;
 
 
-
     private StandardMessage(String id, String key, int deliverMode, int priority, Map<String, Object> properties, Object body, String desc) {
         this.id = id;
         this.key = key;
@@ -42,6 +42,10 @@ public class StandardMessage implements Message {
     }
 
     private StandardMessage() {
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     @Override
@@ -77,10 +81,6 @@ public class StandardMessage implements Message {
     @Override
     public Object body() {
         return body;
-    }
-
-    public static Builder builder() {
-        return new Builder();
     }
 
     public static class Builder implements Message.Builder {

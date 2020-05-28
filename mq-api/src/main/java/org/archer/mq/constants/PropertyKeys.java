@@ -19,6 +19,4 @@ public interface PropertyKeys {
     String SERVICE_PROVIDER_PORT = "server.port";
 
 
-
-
 }

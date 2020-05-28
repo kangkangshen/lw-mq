@@ -20,14 +20,6 @@ public enum RetryPolicyEnum {
         this.desc = desc;
     }
 
-    public Integer getVal() {
-        return val;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
     public static RetryPolicyEnum of(int val) {
         RetryPolicyEnum[] enums = values();
         for (RetryPolicyEnum retryPolicyEnum : enums) {
@@ -46,5 +38,13 @@ public enum RetryPolicyEnum {
             }
         }
         return null;
+    }
+
+    public Integer getVal() {
+        return val;
+    }
+
+    public String getDesc() {
+        return desc;
     }
 }

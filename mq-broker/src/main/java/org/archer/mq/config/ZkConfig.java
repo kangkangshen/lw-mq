@@ -2,15 +2,8 @@ package org.archer.mq.config;
 
 
 import lombok.Data;
-import org.apache.curator.RetryPolicy;
-import org.apache.curator.retry.RetryForever;
-import org.apache.curator.retry.RetryNTimes;
-import org.apache.curator.retry.RetryOneTime;
-import org.archer.mq.constants.RetryPolicyEnum;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Optional;
 
 @Configuration
 @Data

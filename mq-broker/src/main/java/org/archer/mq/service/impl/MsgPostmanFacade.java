@@ -28,8 +28,8 @@ public class MsgPostmanFacade implements MessageSender {
     @Override
     @Transactional
     public void unicast(Message msg, String queue) {
-        msg.properties().put(PropertyKeys.MSG_TARGET_QUEUE,queue);
-        if(Objects.equals(DeliverModeEnum.PERSISTENT,msg.deliverMode())){
+        msg.properties().put(PropertyKeys.MSG_TARGET_QUEUE, queue);
+        if (Objects.equals(DeliverModeEnum.PERSISTENT, msg.deliverMode())) {
             msgManager.saveMsg(msg);
         }
         MessageBroker messageBroker = springContext.getBean(DeliverWayEnum.QUEUE.getMsgBroker());
@@ -39,8 +39,8 @@ public class MsgPostmanFacade implements MessageSender {
 
     @Override
     public void broadcast(Message msg, String topic) {
-        msg.properties().put(PropertyKeys.MSG_TARGET_TOPIC,topic);
-        if(Objects.equals(DeliverModeEnum.PERSISTENT,msg.deliverMode())){
+        msg.properties().put(PropertyKeys.MSG_TARGET_TOPIC, topic);
+        if (Objects.equals(DeliverModeEnum.PERSISTENT, msg.deliverMode())) {
             msgManager.saveMsg(msg);
         }
         MessageBroker messageBroker = springContext.getBean(DeliverWayEnum.TOPIC.getMsgBroker());
